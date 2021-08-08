@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import UserCard from './components/UserCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      users: [],
+      followers: []
+    }
+  };
+
+  componentDidMount(){
+    fetch('https://api.github.com/users/Mad-Mal')
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data)
+        this.setState({ users: data })
+      })
+      .catch(error => {
+        console.log('Error with fetch', error)
+      })
+    // fetch(`https://api.github.com/users/Mad-Mal/followers`)
+    //   .then(res => {
+    //     console.log(res.data)
+    //     this.setState({ followers: res.data })
+    //   })
+  };
+
+  render() {
+    return (
+      <div>
+        <UserCard users={this.state.users}/>
+      </div>
+    )
+  }
 }
 
-export default App;
