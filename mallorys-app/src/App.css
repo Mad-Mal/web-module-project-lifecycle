@@ -1,0 +1,32 @@
+.mainContainer {
+  width: 50em;
+  margin-left: 5em;
+  margin-right: 5em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.userCard {
+  width: 25em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: black;
+  border-width: .5em;
+  border-radius: 5px;
+  background-color: beige;
+}
+
+.headers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
